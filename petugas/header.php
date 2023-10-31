@@ -65,9 +65,9 @@
                             <a href="perjadin.php" aria-expanded="false"><span class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Perjadin</span></a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="arsip.php" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Saya</span></a>
-                        </li>
+                        </li> -->
 
                         <li>
                             <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
