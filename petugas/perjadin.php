@@ -42,7 +42,7 @@
             </div>
 
             <div class="pull-right">
-                <a href="ar.php" class="btn btn-primary"><i class="fa fa-cloud"></i> Matriks Perjadin</a>
+                <a href="perjadin_matriks.php" class="btn btn-primary"><i class="fa fa-calendar"></i> Matriks Perjadin</a>
             </div>
 
             <br>
@@ -91,7 +91,7 @@
 
                                 <b>Nomor Surat</b> : <?php echo $p['sppd_nomor'] ?><br>
                                 <b>Nama Kegiatan</b> : <?php echo $p['sppd_kegiatan'] ?><br>
-                                <b>Tanggal Perjalanan</b> : <?php echo $p['sppd_tanggal'] ?><br>
+                                <b>Tanggal Perjalanan</b> : <?php echo date('d-m-Y', strtotime($p['sppd_tanggal'])) ?><br>
                                 <!-- <b>Jenis</b> : <?php echo $p['arsip_jenis'] ?><br> -->
 
                             </td>

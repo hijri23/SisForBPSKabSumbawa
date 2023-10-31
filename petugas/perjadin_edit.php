@@ -46,7 +46,7 @@
 
                     <?php
                     $id = $_GET['id'];
-                    $data = mysqli_query($koneksi, "select * from arsip where arsip_id='$id'");
+                    $data = mysqli_query($koneksi, "select * from perjadin where sppd_id='$id'");
                     while ($d = mysqli_fetch_array($data)) {
                     ?>
 
@@ -54,16 +54,21 @@
 
                             <div class="form-group">
                                 <label>Nomor Surat</label>
-                                <input type="hidden" name="id" value="<?php echo $d['arsip_id']; ?>">
-                                <input type="text" class="form-control" name="kode" required="required" value="<?php echo $d['arsip_kode']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $d['sppd_id']; ?>">
+                                <input type="text" class="form-control" name="nomor" required="required" value="<?php echo $d['sppd_nomor']; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Nama Kegiatan</label>
-                                <input type="text" class="form-control" name="nama" required="required" value="<?php echo $d['arsip_nama']; ?>">
+                                <input type="text" class="form-control" name="kegiatan" required="required" value="<?php echo $d['sppd_kegiatan']; ?>">
                             </div>
 
                             <div class="form-group">
+                                <label>Tanggal Kegiatan</label>
+                                <input type="date" class="form-control" name="tanggal" required="required" value="<?php echo $d['sppd_tanggal']; ?>">
+                            </div>
+
+                            <!-- <div class="form-group">
                                 <label>Kategori</label>
                                 <select class="form-control" name="kategori" required="required">
                                     <option value="">Pilih kategori</option>
@@ -78,11 +83,11 @@
                                     }
                                     ?>
                                 </select>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label>Keterangan</label>
-                                <textarea class="form-control" name="keterangan" required="required"><?php echo $d['arsip_keterangan']; ?></textarea>
+                                <textarea class="form-control" name="keterangan" required="required"><?php echo $d['sppd_keterangan']; ?></textarea>
                             </div>
 
                             <div class="form-group">

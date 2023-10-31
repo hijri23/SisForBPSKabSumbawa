@@ -47,15 +47,20 @@
 
                         <div class="form-group">
                             <label>Nomor Surat</label>
-                            <input type="text" class="form-control" name="kode" required="required">
+                            <input type="text" class="form-control" name="nomor" required="required">
                         </div>
 
                         <div class="form-group">
                             <label>Nama Kegiatan</label>
-                            <input type="text" class="form-control" name="nama" required="required">
+                            <input type="text" class="form-control" name="kegiatan" required="required">
                         </div>
 
                         <div class="form-group">
+                            <label>Tanggal Kegiatan</label>
+                            <input type="date" class="form-control" name="tanggal" required="required">
+                        </div>
+
+                        <!-- <div class="form-group">
                             <label>Kategori</label>
                             <select class="form-control" name="kategori" required="required">
                                 <option value="">Pilih kategori</option>
@@ -68,7 +73,7 @@
                                 }
                                 ?>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label>Keterangan</label>
