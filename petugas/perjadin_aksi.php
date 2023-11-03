@@ -5,9 +5,10 @@ date_default_timezone_set('Asia/Singapore');
 
 $waktu = date('Y-m-d H:i:s');
 $petugas = $_SESSION['id'];
-$nomor  = $_POST['nomor'];
+// $nomor  = $_POST['nomor'];
 $kegiatan = $_POST['kegiatan'];
-$tanggal = $_POST['tanggal'];
+$tanggal_berangkat = $_POST['tanggal_berangkat'];
+$tanggal_pulang = $_POST['tanggal_pulang'];
 $nama  = $_POST['nama'];
 
 $rand = rand();
@@ -23,6 +24,6 @@ if ($jenis == "php") {
 } else {
 	move_uploaded_file($_FILES['file']['tmp_name'], '../perjadin/' . $rand . '_' . $filename);
 	$nama_file = $rand . '_' . $filename;
-	mysqli_query($koneksi, "insert into perjadin values (NULL,'$waktu','$nomor','$kegiatan','$tanggal','$petugas','$keterangan','$nama_file')") or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "insert into perjadin values (NULL,'$waktu','$kegiatan','$tanggal_berangkat','$tanggal_pulang','$petugas','$keterangan','$nama_file')") or die(mysqli_error($koneksi));
 	header("location:perjadin.php?alert=sukses");
 }

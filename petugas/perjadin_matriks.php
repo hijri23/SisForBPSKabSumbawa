@@ -67,7 +67,18 @@
         <script>
             $(document).ready(function() {
                 var calendar = $('#calendar').fullCalendar({
-                    editable: true,
+                    // editable: true,
+                    // header: {
+                    //     left: 'prev, next today',
+                    //     center: 'title',
+                    //     right: 'month, agendaWeek, agendaDay, listWeek'
+                    // },
+
+                    //tampilkan data dari databse
+                    events: 'tampil.php',
+                    //izinkan tabel calendar bisa dipilih atau edit
+                    selectable: true,
+                    selecthelper: true,
 
 
                 });

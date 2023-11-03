@@ -1,14 +1,14 @@
 $(function() {
 
 	var todayDate = moment().startOf('day');
-	var YM = todayDate.format('YYYY-MM');
-	var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
-	var TODAY = todayDate.format('YYYY-MM-DD');
-	var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+	var YM = todayDate.format('MM-YYYY');
+	var YESTERDAY = todayDate.clone().subtract(1, 'day').format('DD-MM-YYYY');
+	var TODAY = todayDate.format('DD-MM-YYYY');
+	var TOMORROW = todayDate.clone().add(1, 'day').format('DD-MM-YYYY');
 
 	$('#calendar').fullCalendar({
 		header: {
-			left: 'prev,next today',
+			left: 'prev, next today',
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay,listWeek'
 		},
@@ -18,6 +18,8 @@ $(function() {
 		backgroundColor: '#1f2e86',   
 		eventTextColor: '#1f2e86',
 		textColor: '#378006',
+		
+
 		dayClick: function(date, jsEvent, view) {
 
         alert('Clicked on: ' + date.format());
@@ -30,7 +32,7 @@ $(function() {
         $(this).css('background-color', 'red');
 
     },
-		events: [
+		events:[
 			{
 				title: 'All Day Event',
 				start: YM + '-01',

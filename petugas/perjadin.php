@@ -69,11 +69,11 @@
                     <tr>
                         <th width="1%">No</th>
                         <th>Waktu Upload SPPD</th>
-                        <th>Surat Perjalanan Dinas</th>
+                        <th>Rincian Perjalanan Dinas</th>
                         <!-- <th>Kategori</th> -->
                         <th>Pegawai</th>
                         <th>Keterangan</th>
-                        <th class="text-center" width="20%">OPSI</th>
+                        <th class="text-center" width="10%">Tindakan</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -89,9 +89,10 @@
                             <td><?php echo date('H:i:s  d-m-Y', strtotime($p['sppd_waktu_upload'])) ?></td>
                             <td>
 
-                                <b>Nomor Surat</b> : <?php echo $p['sppd_nomor'] ?><br>
+                                <!-- <b>Nomor Surat</b> : <?php echo $p['sppd_nomor'] ?><br> -->
                                 <b>Nama Kegiatan</b> : <?php echo $p['sppd_kegiatan'] ?><br>
-                                <b>Tanggal Perjalanan</b> : <?php echo date('d-m-Y', strtotime($p['sppd_tanggal'])) ?><br>
+                                <b>Tanggal berangkat</b> : <?php echo date('d-m-Y', strtotime($p['sppd_tanggal_berangkat'])) ?><br>
+                                <b>Tanggal pulang</b> : <?php echo date('d-m-Y', strtotime($p['sppd_tanggal_pulang'])) ?><br>
                                 <!-- <b>Jenis</b> : <?php echo $p['arsip_jenis'] ?><br> -->
 
                             </td>
@@ -112,7 +113,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                Apakah anda yakin ingin menghapus data ini? <br>file dan semua yang berhubungan akan dihapus secara permanen.
+                                                Apakah anda yakin ingin menghapus data perjadin ini? <br>record data perjadin ini akan dihapus secara permanen.
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
@@ -124,10 +125,10 @@
 
 
                                 <div class="btn-group">
-                                    <a target="_blank" class="btn btn-default" href="../perjadin/<?php echo $p['sppd_file']; ?>"><i class="fa fa-download"></i></a>
-                                    <a target="_blank" href="arsip_preview.php?id=<?php echo $p['sppd_id']; ?>" class="btn btn-default"><i class="fa fa-search"></i> Preview</a>
-                                    <a href="perjadin_edit.php?id=<?php echo $p['sppd_id']; ?>" class="btn btn-default"><i class="fa fa-wrench"></i></a>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_<?php echo $p['sppd_id']; ?>">
+                                    <!-- <a target="_blank" class="btn btn-default" href="../perjadin/<?php echo $p['sppd_file']; ?>"><i class="fa fa-download"></i></a> -->
+                                    <!-- <a target="_blank" href="perjadin_preview.php?id=<?php echo $p['sppd_id']; ?>" class="btn btn-default"><i class="fa fa-search"></i> Preview</a> -->
+                                    <a href="perjadin_edit.php?id=<?php echo $p['sppd_id']; ?>" class="btn btn-default"><i class="fa fa-edit"></i></a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal_<?php echo $p['sppd_id']; ?>">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </div>

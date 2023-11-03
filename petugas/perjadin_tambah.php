@@ -45,10 +45,10 @@
 
                     <form method="post" action="perjadin_aksi.php" enctype="multipart/form-data">
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Nomor Surat</label>
                             <input type="text" class="form-control" name="nomor" required="required">
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label>Nama Kegiatan</label>
@@ -56,8 +56,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Tanggal Kegiatan</label>
-                            <input type="date" class="form-control" name="tanggal" required="required">
+                            <label>Tanggal Berangkat</label>
+                            <input type="date" class="form-control" name="tanggal_berangkat" required="required">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tanggal Pulang</label>
+                            <input type="date" class="form-control" name="tanggal_pulang" required="required">
                         </div>
 
                         <!-- <div class="form-group">

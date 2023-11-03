@@ -52,20 +52,26 @@
 
                         <form method="post" action="perjadin_update.php" enctype="multipart/form-data">
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Nomor Surat</label>
                                 <input type="hidden" name="id" value="<?php echo $d['sppd_id']; ?>">
                                 <input type="text" class="form-control" name="nomor" required="required" value="<?php echo $d['sppd_nomor']; ?>">
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label>Nama Kegiatan</label>
+                                <input type="hidden" name="id" value="<?php echo $d['sppd_id']; ?>">
                                 <input type="text" class="form-control" name="kegiatan" required="required" value="<?php echo $d['sppd_kegiatan']; ?>">
                             </div>
 
                             <div class="form-group">
-                                <label>Tanggal Kegiatan</label>
-                                <input type="date" class="form-control" name="tanggal" required="required" value="<?php echo $d['sppd_tanggal']; ?>">
+                                <label>Tanggal Berangkat</label>
+                                <input type="date" class="form-control" name="tanggal_berangkat" required="required" value="<?php echo $d['sppd_tanggal_berangkat']; ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tanggal Pulang</label>
+                                <input type="date" class="form-control" name="tanggal_pulang" required="required" value="<?php echo $d['sppd_tanggal_pulang']; ?>">
                             </div>
 
                             <!-- <div class="form-group">

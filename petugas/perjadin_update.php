@@ -8,9 +8,10 @@ date_default_timezone_set('Asia/Jakarta');
 $id  = $_POST['id'];
 //$nama  = $_POST['nama'];
 $waktu = date('Y-m-d H:i:s');
-$nomor  = $_POST['nomor'];
+//$nomor  = $_POST['nomor'];
 $kegiatan = $_POST['kegiatan'];
-$tanggal = $_POST['tanggal'];
+$tanggal_berangkat = $_POST['tanggal_berangkat'];
+$tanggal_pulang = $_POST['tanggal_pulang'];
 
 
 
@@ -23,7 +24,7 @@ $keterangan = $_POST['keterangan'];
 
 if ($filename == "") {
 
-	mysqli_query($koneksi, "update perjadin set sppd_nomor='$nomor', sppd_kegiatan='$kegiatan', sppd_tanggal='$tanggal' , sppd_keterangan='$keterangan' where sppd_id='$id'") or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "update perjadin set sppd_kegiatan='$kegiatan', sppd_tanggal_berangkat='$tanggal_berangkat', sppd_tanggal_pulang='$tanggal_pulang', sppd_keterangan='$keterangan' where sppd_id='$id'") or die(mysqli_error($koneksi));
 	header("location:perjadin.php");
 } else {
 
@@ -42,7 +43,7 @@ if ($filename == "") {
 		// upload file baru
 		move_uploaded_file($_FILES['file']['tmp_name'], '../perjadin/' . $rand . '_' . $filename);
 		$nama_file = $rand . '_' . $filename;
-		mysqli_query($koneksi, "update perjadin set sppd_nomor='$nomor', sppd_kegiatan='$kegiatan', sppd_tanggal='$tanggal', arsip_keterangan='$keterangan', sppd_file='$nama_file' where sppd_id='$id'") or die(mysqli_error($koneksi));
+		mysqli_query($koneksi, "update perjadin set sppd_kegiatan='$kegiatan', sppd_tanggal_berangkat='$tanggal_berangkat', sppd_tanggal_pulang='$tanggal_pulang', sppd_keterangan='$keterangan', sppd_file='$nama_file' where sppd_id='$id'") or die(mysqli_error($koneksi));
 		header("location:perjadin.php?alert=sukses");
 	}
 }
