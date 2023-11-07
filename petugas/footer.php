@@ -39,12 +39,13 @@
 <script src="../assets/js/main.js"></script>
 
 <script src="../assets/js/DataTables/datatables.js"></script>
-
-
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery-ui.min.js"></script> -->
 <script src="../assets/js/pdf/jquery.media.js"></script>
 <script src="../assets/js/pdf/pdf-active.js"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(document).ready(function() {
 		$('.table-datatable').DataTable();
 
@@ -91,7 +92,7 @@
 
 		});
 	});
-</script>
+</script> -->
 </body>
 
 </html>

@@ -41,51 +41,80 @@
         <br>
         <br>
 
-        <center>
-            <?php
-            if (isset($_GET['alert'])) {
-                if ($_GET['alert'] == "gagal") {
-            ?>
-                    <div class="alert alert-danger">File SPPD gagal diupload. krena demi keamanan file .php tidak diperbolehkan.</div>
-                <?php
-                } else {
-                ?>
-                    <div class="alert alert-success">Surat SPPD berhasil tersimpan.</div>
-            <?php
-                }
-            }
-            ?>
-        </center>
-
         <br>
         <div class="container">
+
             <div id="calendar">
 
             </div>
+            <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script>
         </div>
 
-        <script>
-            $(document).ready(function() {
-                var calendar = $('#calendar').fullCalendar({
-                    // editable: true,
-                    // header: {
-                    //     left: 'prev, next today',
-                    //     center: 'title',
-                    //     right: 'month, agendaWeek, agendaDay, listWeek'
-                    // },
 
-                    //tampilkan data dari databse
+        <!-- <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    timeZone: 'UTC',
+                    initialView: 'dayGridMonth',
                     events: 'tampil.php',
-                    //izinkan tabel calendar bisa dipilih atau edit
+                    editable: true,
+                    selectable: true
+                });
+
+                calendar.render();
+            });
+        </script> -->
+
+
+
+        <script>
+            $(function() {
+
+                // var todayDate = moment().startOf('day');
+                // var YM = todayDate.format('YYYY-MM');
+                // var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
+                // var TODAY = todayDate.format('YYYY-MM-DD');
+                // var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev, next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay,listWeek'
+                    },
+                    editable: true,
+                    eventLimit: true, // allow "more" link when too many events
+                    navLinks: true,
+                    backgroundColor: '#1f2e86',
+                    eventTextColor: '#1f2e86',
+                    textColor: '#378006',
                     selectable: true,
                     selecthelper: true,
+                    initialView: 'dayGridMonth',
 
 
+                    dayClick: function(date, jsEvent, view) {
+
+                        alert('Clicked on: ' + date.format());
+
+                        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+
+                        alert('Current view: ' + view.name);
+
+                        // change the day's background color just for fun
+                        $(this).css('background-color', 'red');
+
+                    },
+                    events: 'tampil.php',
                 });
             });
         </script>
 
     </div>
+
+
 
 </div>
 </div>

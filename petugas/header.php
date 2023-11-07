@@ -28,10 +28,21 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- <link rel="stylesheet" href="../assets/css/fullcalendar.css"> -->
+    <!-- <link rel="stylesheet" href="../assets/css/bootstrap.css"> -->
+    <!-- Event making stuff; not relevant-->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.css"> -->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
+
 
     <link rel="stylesheet" type="text/css" href="../assets/js/DataTables/datatables.css">
 
     <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery-ui.min.js"></script>
+
 
     <?php
     include '../koneksi.php';
