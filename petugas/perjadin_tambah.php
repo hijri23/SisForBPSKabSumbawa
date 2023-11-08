@@ -82,13 +82,13 @@
 
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control" name="keterangan" required="required"></textarea>
+                            <textarea class="form-control" name="keterangan"></textarea>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>File</label>
                             <input type="file" name="file">
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label></label>

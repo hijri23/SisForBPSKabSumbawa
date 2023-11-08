@@ -47,7 +47,7 @@
             <div id="calendar">
 
             </div>
-            <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc4641f860664c6e824b093274f50291"}'></script>
+
         </div>
 
 
@@ -82,32 +82,88 @@
                     header: {
                         left: 'prev, next today',
                         center: 'title',
-                        right: 'month,agendaWeek,agendaDay,listWeek'
+                        right: 'month,agendaDay'
                     },
                     editable: true,
-                    eventLimit: true, // allow "more" link when too many events
+                    //eventLimit: true, // allow "more" link when too many events
                     navLinks: true,
                     backgroundColor: '#1f2e86',
                     eventTextColor: '#1f2e86',
                     textColor: '#378006',
                     selectable: true,
                     selecthelper: true,
-                    initialView: 'dayGridMonth',
-
-
-                    dayClick: function(date, jsEvent, view) {
-
-                        alert('Clicked on: ' + date.format());
-
-                        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-                        alert('Current view: ' + view.name);
-
-                        // change the day's background color just for fun
-                        $(this).css('background-color', 'red');
-
-                    },
                     events: 'tampil.php',
+                    select: function(start, end, allDay) {
+                        //tampilkan pesan input
+                        var title = prompt("Masukan Judul Kegiatan");
+                        if (title) {
+                            //tampung tggl yg dipilih dalam variabel start dan end
+                            var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD");
+                            var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
+                            //perintah ajax untuk melempar data ke database
+                            $.ajax({
+                                url: "simpan.php",
+                                type: "POST",
+                                async: false,
+                                data: {
+                                    title: title,
+                                    start: start,
+                                    end: end,
+                                },
+                                success: function(data) {
+                                    $('#calendar').fullCalendar('refetchEvents');
+                                    //alert("Sukses Menyimpan Data Perjadin");
+                                },
+                            });
+                            $(":input").val('');
+                            return false;
+                        }
+                    },
+
+                    //event ketika judul kegiatan diseret
+                    eventDrop: function(event) {
+                        var start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
+                        var end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD");
+                        var title = event.title;
+                        var id = event.id;
+                        //perintah ajax untuk melempar data ke database
+                        $.ajax({
+                            url: "ubah_perjadin.php",
+                            type: "POST",
+                            async: false,
+                            data: {
+                                title: title,
+                                start: start,
+                                end: end,
+                                id: id
+                            },
+                            success: function(data) {
+                                $('#calendar').fullCalendar('refetchEvents');
+                                //alert("Sukses Mengubah Data Perjadin");
+                            },
+                        });
+                    },
+
+                    //even ketika judul kegiatan diklik
+                    eventClick: function(event) {
+                        if (confirm("Apakah anda yakin akan menghapus kegiatan ini?")) {
+                            var id = event.id;
+                            //perintah ajax
+                            $.ajax({
+                                url: "hapus_perjadin.php",
+                                type: "POST",
+                                async: false,
+                                data: {
+                                    id: id
+                                },
+                                success: function(data) {
+                                    $('#calendar').fullCalendar('refetchEvents');
+                                    //alert("Sukses Menghapus Data Perjadin");
+                                },
+                            });
+                        }
+                    }
+
                 });
             });
         </script>

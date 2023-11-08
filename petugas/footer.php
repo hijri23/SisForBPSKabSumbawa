@@ -45,7 +45,7 @@
 <script src="../assets/js/pdf/jquery.media.js"></script>
 <script src="../assets/js/pdf/pdf-active.js"></script>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function() {
 		$('.table-datatable').DataTable();
 
@@ -66,12 +66,14 @@
 					$tgl = date('Y/m/d', strtotime($p['riwayat_waktu']));
 					$jumlah = mysqli_query($koneksi, "select * from riwayat where date(riwayat_waktu)='$tgl'");
 					$j = mysqli_num_rows($jumlah);
+
 				?> {
 						period: '<?php echo date('Y-m-d', strtotime($p['riwayat_waktu'])) ?>',
 						Unduh: <?php echo $j ?>,
 					},
 				<?php
 				}
+
 				?>
 
 			],
@@ -92,7 +94,7 @@
 
 		});
 	});
-</script> -->
+</script>
 </body>
 
 </html>

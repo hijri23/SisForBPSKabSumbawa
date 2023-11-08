@@ -24,16 +24,21 @@
     <link rel="stylesheet" href="../assets/css/metisMenu/metisMenu.min.css">
     <link rel="stylesheet" href="../assets/css/metisMenu/metisMenu-vertical.css">
     <link rel="stylesheet" href="../assets/css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="../assets/css/calendar/fullcalendar.print.min.css">
+    <!-- <link rel="stylesheet" href="../assets/css/calendar/fullcalendar.print.min.css"> -->
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- <link rel="stylesheet" href="../assets/css/fullcalendar.css"> -->
+    <link rel="stylesheet" href="../assets/css/fullcalendar.css">
     <!-- <link rel="stylesheet" href="../assets/css/bootstrap.css"> -->
     <!-- Event making stuff; not relevant-->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.css"> -->
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
+
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
+    <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
 
 
     <link rel="stylesheet" type="text/css" href="../assets/js/DataTables/datatables.css">
