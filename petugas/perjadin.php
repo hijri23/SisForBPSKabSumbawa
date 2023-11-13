@@ -34,7 +34,7 @@
 
 
             <div class="pull-right">
-                <a href="perjadin_tambah.php" class="btn btn-primary"><i class="fa fa-cloud"></i> Upload SPPD</a>
+                <a href="perjadin_tambah.php" class="btn btn-primary"><i class="fa fa-cloud"></i> Isi Data Perjadin</a>
             </div>
 
             <div class="pull-right">

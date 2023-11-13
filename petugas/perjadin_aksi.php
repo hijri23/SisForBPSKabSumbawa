@@ -8,8 +8,16 @@ $petugas = $_SESSION['id'];
 // $nomor  = $_POST['nomor'];
 $kegiatan = $_POST['kegiatan'];
 $tanggal_berangkat = $_POST['tanggal_berangkat'];
-$tanggal_pulang = $_POST['tanggal_pulang'];
+// $myvalue = '2023-11-11 22:00:00';
+// $datetime = new DateTime($myvalue);
+// $time = $datetime->format('Y-m-d H:i:s');
+$tanggal_pulang = $_POST['tanggal_pulang'] . ' 22:00:00';
 $nama  = $_POST['nama'];
+
+// $myvalue = '22:00:00';
+// $time = date('H:i:s', strtotime($myvalue));
+// $waktu_pulang = $tanggal_pulang. $time;
+// var_dump($tanggal_pulang);
 
 $rand = rand();
 

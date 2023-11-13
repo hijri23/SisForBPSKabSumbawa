@@ -32,6 +32,32 @@
         </div>
         <div class="panel-body"> -->
 
+        <div class="col-lg-2">
+            <div class="form-group">
+                <label>Filter Pegawai</label>
+                <select class="form-control" id="ambil_pegawai" name="petugas" required="required">
+                    <option value="">Pilih pegawai</option>
+                    <?php
+                    $petugas = mysqli_query($koneksi, "SELECT * FROM petugas order by petugas_nama");
+                    while ($k = mysqli_fetch_array($petugas)) {
+                    ?>
+                        <option <?php if (isset($_GET['petugas'])) {
+                                    if ($_GET['petugas'] == $k['petugas_id']) {
+                                        echo "selected='selected'";
+                                    }
+                                } ?> value="<?php echo $k['petugas_id']; ?>"><?php echo $k['petugas_nama']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-2">
+            <h1></h1>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Tampilkan">
+        </div>
 
         <div class="pull-right">
             <a href="perjadin.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
@@ -40,8 +66,9 @@
         <br>
         <br>
         <br>
-
         <br>
+        <br>
+
         <div class="container">
 
             <div id="calendar">
@@ -51,32 +78,16 @@
         </div>
 
 
-        <!-- <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    timeZone: 'UTC',
-                    initialView: 'dayGridMonth',
-                    events: 'tampil.php',
-                    editable: true,
-                    selectable: true
-                });
-
-                calendar.render();
-            });
-        </script> -->
-
-
 
         <script>
-            $(function() {
+            // $('#ambil_pegawai').on('change', function() {
+            //     const selectedPackage = $('#ambil_pegawai').val();
+            //     console.log(selectedPackage);
 
-                // var todayDate = moment().startOf('day');
-                // var YM = todayDate.format('YYYY-MM');
-                // var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
-                // var TODAY = todayDate.format('YYYY-MM-DD');
-                // var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+            // });
+
+
+            $(function() {
 
                 $('#calendar').fullCalendar({
                     header: {
@@ -92,14 +103,22 @@
                     textColor: '#378006',
                     selectable: true,
                     selecthelper: true,
+                    allDay: false,
+                    //forceEventDuration: true,
+                    //allDayDefault: true,
+                    //nextDayThreshold: '23.59:00',
                     events: 'tampil.php',
-                    select: function(start, end, allDay) {
+                    select: function(start, end) {
                         //tampilkan pesan input
                         var title = prompt("Masukan Judul Kegiatan");
                         if (title) {
                             //tampung tggl yg dipilih dalam variabel start dan end
                             var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD");
-                            var end = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
+                            var end = $.fullCalendar.formatDate(end.subtract(1, 'days'), "YYYY-MM-DD 22.00.00");
+                            //end = end.clone().subtract(1, 'day');
+                            //end = end.subtract(1, 'days');
+                            //newVar = end + " -24:00:00";
+
                             //perintah ajax untuk melempar data ke database
                             $.ajax({
                                 url: "simpan.php",
@@ -115,15 +134,15 @@
                                     //alert("Sukses Menyimpan Data Perjadin");
                                 },
                             });
-                            $(":input").val('');
-                            return false;
+                            // $(":input").val('');
+                            // return false;
                         }
                     },
 
                     //event ketika judul kegiatan diseret
                     eventDrop: function(event) {
                         var start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
-                        var end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD");
+                        var end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD 22:00:00");
                         var title = event.title;
                         var id = event.id;
                         //perintah ajax untuk melempar data ke database
