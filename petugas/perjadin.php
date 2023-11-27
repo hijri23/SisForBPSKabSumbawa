@@ -31,15 +31,16 @@
             <h3 class="panel-title">Data Perjadin Saya</h3>
         </div>
         <div class="panel-body">
+            
 
 
-            <div class="pull-right">
+            <!-- <div class="pull-right">
                 <a href="perjadin_tambah.php" class="btn btn-primary"><i class="fa fa-cloud"></i> Isi Data Perjadin</a>
             </div>
 
             <div class="pull-right">
                 <a>...</a>
-            </div>
+            </div> -->
 
             <div class="pull-right">
                 <a href="perjadin_matriks.php" class="btn btn-primary"><i class="fa fa-calendar"></i> Matriks Perjadin</a>

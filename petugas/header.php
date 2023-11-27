@@ -78,16 +78,16 @@
                         </li>
 
                         <li>
-                            <a href="perjadin.php" aria-expanded="false"><span class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Perjadin</span></a>
+                            <a href="perjadin_matriks.php" aria-expanded="false"><span class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Matriks Perjadin</span></a>
                         </li>
 
                         <!-- <li>
                             <a href="arsip.php" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Saya</span></a>
                         </li> -->
 
-                        <!-- <li>
-                            <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Kategori</span></a>
-                        </li> -->
+                        <li>
+                            <a href="kategori.php" aria-expanded="false"><span class="educate-icon educate-course icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Indeks Kegiatan</span></a>
+                        </li>
 
                         <li>
                             <a href="user.php" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Data Mitra</span></a>

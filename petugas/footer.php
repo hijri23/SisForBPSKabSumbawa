@@ -67,6 +67,7 @@
 					$jumlah = mysqli_query($koneksi, "select * from riwayat where date(riwayat_waktu)='$tgl'");
 					$j = mysqli_num_rows($jumlah);
 
+
 				?> {
 						period: '<?php echo date('Y-m-d', strtotime($p['riwayat_waktu'])) ?>',
 						Unduh: <?php echo $j ?>,
