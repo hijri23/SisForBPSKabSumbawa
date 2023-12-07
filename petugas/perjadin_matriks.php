@@ -38,14 +38,10 @@
                 <select class="form-control" id="ambil_pegawai" name="petugas" required="required">
                     <option value="">Pilih pegawai</option>
                     <?php
-                    $petugas = mysqli_query($koneksi, "SELECT * FROM petugas order by petugas_nama");
+                        $petugas = mysqli_query($koneksi, "SELECT * FROM petugas order by petugas_nama");
                     while ($k = mysqli_fetch_array($petugas)) {
                     ?>
-                        <option <?php if (isset($_GET['petugas'])) {
-                                    if ($_GET['petugas'] == $k['petugas_id']) {
-                                        echo "selected='selected'";
-                                    }
-                                } ?> value="<?php echo $k['petugas_id']; ?>"><?php echo $k['petugas_nama']; ?></option>
+                    <option value="<?php echo $k['petugas_id']; ?>"><?php echo $k['petugas_nama']; ?></option>
                     <?php
                     }
                     ?>
@@ -53,11 +49,11 @@
             </div>
         </div>
 
-        <div class="col-lg-2">
+        <!-- <div class="col-lg-2">
             <h1></h1>
             <br>
             <input type="submit" class="btn btn-primary" value="Tampilkan" id="tampilkan">
-        </div>
+        </div> -->
 
         <div class="pull-right">
             <a href="perjadin.php" class="btn btn-primary"><i class="fa fa-book"></i> Lihat Data Perjadin</a>
@@ -87,7 +83,7 @@
 
             // });
 
-            $('#tampilkan').on('change', function() {
+            $('#tampilkan').on('change', function () {
                 const selectedPackage = $('#tampilkan').val();
                 console.log(selectedPackage);
                 // var hasil = document.getElementById("tampilkan");
@@ -115,7 +111,7 @@
             // });
 
 
-            $(function() {
+            $(function () {
 
                 $('#calendar').fullCalendar({
                     header: {
@@ -137,13 +133,14 @@
                     //allDayDefault: true, 
                     //nextDayThreshold: '23.59:00',
                     events: 'tampil.php',
-                    select: function(start, end) {
+                    select: function (start, end) {
                         //tampilkan pesan input
                         var title = prompt("Masukan Judul Kegiatan");
                         if (title) {
                             //tampung tggl yg dipilih dalam variabel start dan end
                             var start = $.fullCalendar.formatDate(start, "YYYY-MM-DD");
-                            var end = $.fullCalendar.formatDate(end.subtract(1, 'days'), "YYYY-MM-DD 23.59.00");
+                            var end = $.fullCalendar.formatDate(end.subtract(1, 'days'),
+                                "YYYY-MM-DD 23.59.00");
                             //end = end.clone().subtract(1, 'day');
                             //end = end.subtract(1, 'days');
                             //newVar = end + " -24:00:00";
@@ -158,7 +155,7 @@
                                     start: start,
                                     end: end,
                                 },
-                                success: function(data) {
+                                success: function (data) {
                                     $('#calendar').fullCalendar('refetchEvents');
                                     //alert("Sukses Menyimpan Data Perjadin");
                                 },
@@ -169,7 +166,7 @@
                     },
 
                     //event ketika judul kegiatan diseret
-                    eventDrop: function(event) {
+                    eventDrop: function (event) {
                         var start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
                         var end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD 23:59:00");
                         var title = event.title;
@@ -185,7 +182,7 @@
                                 end: end,
                                 id: id
                             },
-                            success: function(data) {
+                            success: function (data) {
                                 $('#calendar').fullCalendar('refetchEvents');
                                 //alert("Sukses Mengubah Data Perjadin");
                             },
@@ -193,7 +190,7 @@
                     },
 
                     //even ketika judul kegiatan diklik
-                    eventClick: function(event) {
+                    eventClick: function (event) {
                         if (confirm("Apakah anda yakin akan menghapus kegiatan ini?")) {
                             var id = event.id;
                             //perintah ajax
@@ -204,7 +201,7 @@
                                 data: {
                                     id: id
                                 },
-                                success: function(data) {
+                                success: function (data) {
                                     $('#calendar').fullCalendar('refetchEvents');
                                     //alert("Sukses Menghapus Data Perjadin");
                                 },
@@ -212,6 +209,50 @@
                         }
                     }
 
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                // Inisialisasi kalender
+                $('#calendar').fullCalendar({
+                    // Konfigurasi kalender
+                });
+
+                // Fungsi untuk memuat ulang kalender berdasarkan pegawai yang dipilih
+                $('#ambil_pegawai').change(function () {
+                    var pegawaiId = $(this).val(); // Ambil id pegawai yang dipilih
+
+                    // Hapus event yang ada di kalender sebelum memuat yang baru
+                    $('#calendar').fullCalendar('removeEvents');
+
+                    // Lakukan permintaan AJAX untuk mengambil event berdasarkan pegawai
+                    $.ajax({
+                        url: 'tampil_perjadin_pegawai.php', // Sesuaikan dengan URL server Anda
+                        type: 'POST',
+                        data: {
+                            petugas: pegawaiId
+                        },
+                        dataType: 'json', // Pastikan bahwa server mengembalikan JSON
+                        success: function (events) {
+                            // Pastikan bahwa data events adalah array
+                            console.log(events);
+                            console.log("sukses");
+                            if (Array.isArray(events)) {
+                                // Tambahkan setiap event ke kalender
+                                events.forEach(function (event) {
+                                    $('#calendar').fullCalendar('renderEvent',
+                                        event, true); // stick the event
+                                });
+                            } else {
+                                console.error('Data yang diterima bukan array:', events);
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log('Error:', textStatus, errorThrown);
+                            alert('Terjadi kesalahan: ' + textStatus + ' - ' + errorThrown);
+                        }
+                    });
                 });
             });
         </script>
